@@ -1,0 +1,37 @@
+.container {
+  padding: 10rem;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+button {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+mat-header-row,
+mat-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-header-cell,
+mat-cell {
+  padding: 8px;
+}
+
+.mat-mdc-header-cell {
+  text-align: center;
+  border-left: 1px solid #ccc; 
+}
+.mdc-data-table__cell {
+  text-align: center;
+  border-left: 1px solid #ccc; 
+}

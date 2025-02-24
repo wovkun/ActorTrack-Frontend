@@ -1,1 +1,137 @@
-<p>create-actor works!</p>
+<div class="container-fluid create-actor-block align-content-start">
+  <div class="row justify-content-center"></div>
+  <div class="form-block row justify-content-center">
+    <div class="form-modal container">
+      <div class="modal-parts">
+        <span class="form-label">
+          {{ isEditMode ? "Edit" : "Create" }} Actor</span
+        >
+      </div>
+      <form
+        [formGroup]="actorForm"
+        (ngSubmit)="onSubmit()"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="modal-parts form-group">
+          <input
+            type="text"
+            class="input-field form-control form-control-sm"
+            placeholder="First Name"
+            formControlName="firstName"
+            [ngClass]="{
+              'is-invalid':
+                formSubmitted &&
+                (actorForm.get('firstName')?.touched ||
+                  actorForm.get('firstName')?.dirty) &&
+                actorForm.get('firstName')?.hasError('required')
+            }"
+          />
+          <div class="invalid-feedback">
+            First name is required and must be at least 2 characters long.
+          </div>
+        </div>
+
+        <div class="modal-parts form-group">
+          <input
+            type="text"
+            class="input-field form-control form-control-sm"
+            placeholder="Last Name"
+            formControlName="lastName"
+            [ngClass]="{
+              'is-invalid':
+                formSubmitted &&
+                (actorForm.get('lastName')?.touched ||
+                  actorForm.get('lastName')?.dirty) &&
+                actorForm.get('lastName')?.hasError('required')
+            }"
+          />
+          <div class="invalid-feedback">
+            Last name is required and must be at least 2 characters long.
+          </div>
+        </div>
+
+        <div class="modal-parts form-group">
+          <input
+            type="text"
+            class="input-field form-control form-control-sm"
+            placeholder="Middle Name"
+            formControlName="middleName"
+            [ngClass]="{
+              'is-invalid':
+                formSubmitted &&
+                (actorForm.get('middleName')?.touched ||
+                  actorForm.get('middleName')?.dirty) &&
+                actorForm.get('middleName')?.hasError('required')
+            }"
+          />
+          <div class="invalid-feedback">Middle name is required.</div>
+        </div>
+
+        <div class="modal-parts form-group">
+          <input
+            type="text"
+            class="input-field form-control form-control-sm"
+            placeholder="Title"
+            formControlName="title"
+            [ngClass]="{
+              'is-invalid':
+                formSubmitted &&
+                (actorForm.get('title')?.touched ||
+                  actorForm.get('title')?.dirty) &&
+                actorForm.get('title')?.hasError('required')
+            }"
+          />
+          <div class="invalid-feedback">Title is required.</div>
+        </div>
+
+        <div class="modal-parts form-group">
+          <input
+            type="number"
+            class="input-field form-control form-control-sm"
+            placeholder="Experience in years"
+            formControlName="experience"
+            [ngClass]="{
+              'is-invalid':
+                formSubmitted &&
+                (actorForm.get('experience')?.touched ||
+                  actorForm.get('experience')?.dirty) &&
+                actorForm.get('experience')?.hasError('required')
+            }"
+          />
+          <div class="invalid-feedback">
+            Experience is required and must be a positive number.
+          </div>
+        </div>
+
+        <div class="modal-parts form-group">
+          <input
+            type="text"
+            class="input-field form-control form-control-sm"
+            placeholder="Awards"
+            formControlName="awards"
+            [ngClass]="{
+              'is-invalid':
+                formSubmitted &&
+                (actorForm.get('awards')?.touched ||
+                  actorForm.get('awards')?.dirty) &&
+                actorForm.get('awards')?.hasError('required')
+            }"
+          />
+          <div class="invalid-feedback">
+            {{ awardsError || "Awards are required." }}
+          </div>
+        </div>
+
+        <div class="modal-parts">
+          <button class="primary-button" type="submit">
+            {{ isEditMode ? "Edit" : "Create" }} Actor
+          </button>
+        </div>
+      </form>
+      <div class="modal-parts router-button">
+        <button class="secondary-button" (click)="onGoBack()">Go Back</button>
+      </div>
+    </div>
+  </div>
+</div>

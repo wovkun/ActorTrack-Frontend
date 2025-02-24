@@ -18,7 +18,7 @@ export class HomeGuard implements CanActivate {
   canActivate(): boolean {
     const isAuthenticated = this.jwtService.getToken();
     if (!isAuthenticated) {
-      this.router.navigate(['/signin']);
+      this.router.navigate(['/login']);
       return false;
     }
     console.log('token exists');

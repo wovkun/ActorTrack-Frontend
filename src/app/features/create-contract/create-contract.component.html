@@ -1,1 +1,71 @@
-<p>create-contract works!</p>
+<div class="container-fluid create-contract-block align-content-start">
+  <div class="row justify-content-center"></div>
+  <div class="form-block row justify-content-center">
+    <div class="form-modal container">
+      <div class="modal-parts">
+        <h3 class="form-label">Create Contract</h3>
+      </div>
+      <form
+        [formGroup]="contractForm"
+        (ngSubmit)="onSubmit()"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="modal-parts form-group">
+          <select
+            class="input-field form-control form-control-sm actor-name"
+            formControlName="actorId"
+          >
+            <option value="" disabled selected>Select an Actor</option>
+            <option *ngFor="let actor of actorsList" [value]="actor._id">
+              {{ actor.lastName }}
+            </option>
+          </select>
+          <div class="invalid-feedback">Actor selection is required.</div>
+        </div>
+        <div class="modal-parts form-group">
+          <input
+            type="text"
+            class="input-field form-control form-control-sm"
+            placeholder="Role"
+            formControlName="role"
+            [ngClass]="{
+              'is-invalid':
+                formSubmitted &&
+                (contractForm.get('role')?.touched ||
+                  contractForm.get('role')?.dirty) &&
+                contractForm.get('role')?.hasError('required')
+            }"
+          />
+          <div class="invalid-feedback">Role is required.</div>
+        </div>
+
+        <div class="modal-parts form-group">
+          <input
+            type="number"
+            class="input-field form-control form-control-sm"
+            placeholder="Base Salary"
+            formControlName="baseSalary"
+            [ngClass]="{
+              'is-invalid':
+                formSubmitted &&
+                (contractForm.get('baseSalary')?.touched ||
+                  contractForm.get('baseSalary')?.dirty) &&
+                contractForm.get('baseSalary')?.hasError('required')
+            }"
+          />
+          <div class="invalid-feedback">
+            Base salary is required and must be a positive number.
+          </div>
+        </div>
+
+        <div class="modal-parts">
+          <button class="primary-button" type="submit">Create Contract</button>
+        </div>
+      </form>
+      <div class="modal-parts router-button">
+        <button class="secondary-button" (click)="onGoBack()">Go Back</button>
+      </div>
+    </div>
+  </div>
+</div>

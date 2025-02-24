@@ -57,6 +57,6 @@ export class AuthService {
 
   logout(): void {
     this.jwtService.destroyToken();
-    void this.router.navigate(['/signin']);
+    void this.router.navigate(['/login']);
   }
 }

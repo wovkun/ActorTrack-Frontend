@@ -1,0 +1,85 @@
+::placeholder {
+  color: var(--color-placeholders);
+}
+
+.form-control {
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.container-fluid {
+  color: white;
+  background-color: var(--color-bg-main);
+  height: 100vh;
+  padding-top: 20vh;
+}
+
+.logo {
+  width: auto;
+  height: 19vh;
+  margin: 10vh 0;
+
+  @media (min-width: 2000px) {
+    transform: scale(1.2);
+  }
+}
+
+.form-modal {
+  height: auto;
+  width: auto;
+  background-color: var(--color-bg-modals);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.8rem;
+  box-shadow: 0 0.7rem 0.7rem var(--color-box-shadow);
+  padding: 2rem 2rem 0;
+
+  @media (min-width: 2000px) {
+    transform: scale(1.5);
+  }
+}
+
+.input-field {
+  color: var(--color-text-white);
+  background-color: var(--color-bg-main);
+  border: none;
+  padding: 1vh;
+  border-radius: 0.4rem;
+  height: 2rem;
+  width: 16rem;
+  box-shadow: 0 0.7rem 0.7rem var(--color-box-shadow);
+
+  &:focus {
+    border: 0.3vh solid var(--color-input-fields);
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.modal-parts {
+  margin-bottom: 1.3rem;
+  padding: 0 0.5rem;
+}
+
+.router-button {
+  margin-top: 0;
+}
+
+.form-label {
+  color: var(--color-text-white);
+  font-size: 18px;
+}
+
+.confirm-password {
+  margin-bottom: 2.2rem;
+
+  &-invalid {
+    margin-top: -2.2rem;
+  }
+}
+
+.invalid-feedback {
+  font-size: 12px;
+  text-align: center;
+}

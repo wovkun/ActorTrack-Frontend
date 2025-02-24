@@ -1,1 +1,85 @@
-<p>home works!</p>
+<div class="home-container container-fluid">
+  <app-header></app-header>
+
+  <div class="current-container">
+    <ng-container *ngIf="activeComponent === 'actors'"
+      ><app-actors-list></app-actors-list
+    ></ng-container>
+    <ng-container *ngIf="activeComponent === 'performances'"
+      ><app-performances-list></app-performances-list
+    ></ng-container>
+
+    <ng-container *ngIf="activeComponent === 'contracts'">
+      <app-contracts-list></app-contracts-list
+    ></ng-container>
+
+    <ng-container *ngIf="activeComponent === 'default'">
+      <div class="welcome">
+        <h2>Welcome to ActorTrack!</h2>
+        <span class="welcome-text">
+          The platform is designed to manage and track information related to
+          actors, performances, and contracts in a production environment. It
+          follows the modern software architecture and utilizes a range of
+          powerful technologies to deliver a seamless user experience:
+        </span>
+        <ul>
+          <li>
+            <img
+              src="./images/mongo.svg"
+              alt="MongoDB"
+              style="width: 60px; height: auto; margin-right: 8px"
+            />
+            <b>MongoDB</b>: The platform uses the latest stable version of
+            MongoDB, with Mongoose for database interaction. MongoDB Atlas is
+            utilized for cloud database management, providing a scalable
+            solution.
+          </li>
+          <li>
+            <img
+              src="./images/express1.svg"
+              alt="Express.js"
+              style="width: 60px; height: auto; margin-right: 8px"
+            />
+            <b>Express.js</b>: The backend is built with the latest version of
+            Express.js. It ensures smooth routing and efficient handling of HTTP
+            requests. Authentication and authorization are implemented using
+            JWT for secure access control.
+          </li>
+          <li>
+            <img
+              src="./images/angular.svg"
+              alt="Angular"
+              style="width: 60px; height: auto; margin-right: 8px"
+            />
+            <b>Angular</b>: The frontend is developed using Angular. Material UI
+            is used to create a responsive and clean user interface.
+          </li>
+          <li>
+            <img
+              src="./images/swagger.svg"
+              alt="Swagger"
+              style="width: 60px; height: auto; margin-right: 8px"
+            />
+            <b>Swagger</b>: A RESTful API is developed using Express.js, and API
+            documentation is created using Swagger for easy understanding and
+            usage.
+            <button class="secondary-button">
+              <a href="http://localhost:5000/api-docs" target="_blank" class="swagger-link"
+                >Visit Swagger</a
+              >
+            </button>
+          </li>
+          <li>
+            <img
+              src="./images/git.svg"
+              alt="GitHub"
+              style="width: 60px; height: auto; margin-right: 8px"
+            />
+            <b>GitHub</b>: The project is managed and stored on GitHub for
+            version control.
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+  </div>
+</div>

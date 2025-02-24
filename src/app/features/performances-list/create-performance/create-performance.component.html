@@ -1,1 +1,78 @@
-<p>create-performance works!</p>
+<div class="container-fluid create-performance-block align-content-start">
+  <div class="row justify-content-center"></div>
+  <div class="form-block row justify-content-center">
+    <div class="form-modal container">
+      <div class="modal-parts">
+        <h3 class="form-label">
+          {{ isEditMode ? "Edit" : "Create" }} Performance
+        </h3>
+      </div>
+      <form
+        [formGroup]="performanceForm"
+        (ngSubmit)="onSubmit()"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="modal-parts form-group">
+          <input
+            type="text"
+            class="input-field form-control form-control-sm"
+            placeholder="Title"
+            formControlName="title"
+            [ngClass]="{
+              'is-invalid':
+                formSubmitted &&
+                (performanceForm.get('title')?.touched ||
+                  performanceForm.get('title')?.dirty) &&
+                performanceForm.get('title')?.hasError('required')
+            }"
+          />
+          <div class="invalid-feedback">Title is required.</div>
+        </div>
+
+        <div class="modal-parts form-group">
+          <input
+            type="number"
+            class="input-field form-control form-control-sm"
+            placeholder="Year"
+            formControlName="year"
+            [ngClass]="{
+              'is-invalid':
+                formSubmitted &&
+                (performanceForm.get('year')?.touched ||
+                  performanceForm.get('year')?.dirty) &&
+                performanceForm.get('year')?.hasError('required')
+            }"
+          />
+          <div class="invalid-feedback">Year is required.</div>
+        </div>
+
+        <div class="modal-parts form-group">
+          <input
+            type="number"
+            class="input-field form-control form-control-sm"
+            placeholder="Budget"
+            formControlName="budget"
+            [ngClass]="{
+              'is-invalid':
+                formSubmitted &&
+                (performanceForm.get('budget')?.touched ||
+                  performanceForm.get('budget')?.dirty) &&
+                performanceForm.get('budget')?.hasError('required')
+            }"
+          />
+          <div class="invalid-feedback">Budget is required.</div>
+        </div>
+
+        <div class="modal-parts">
+          <button class="primary-button" type="submit">
+            {{ isEditMode ? "Edit" : "Create" }} Performance
+          </button>
+        </div>
+      </form>
+      <div class="modal-parts router-button">
+        <button class="secondary-button" (click)="onGoBack()">Go Back</button>
+      </div>
+    </div>
+  </div>
+</div>
